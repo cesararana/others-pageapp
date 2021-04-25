@@ -1,10 +1,10 @@
-package com.cesararana.exe.urldbapp.urldbapp;
+package com.cesararana.exe.pageapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UrldbappApplicationTests {
+class PageSpringBootApplicationTests {
 
 	@Test
 	void contextLoads() {
