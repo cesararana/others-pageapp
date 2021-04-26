@@ -1,38 +1,173 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: node;
+}
+
+a:active {
+  text-decoration: node;
+}
+
+/**/
+
 .App {
+  padding: 1em;
+}
+
+.nav ul {
+  list-style-type: none;
+  flex-direction: column;
+  padding: 1em;
+  margin: 0px;
+  background-color: #0af;
+  border-radius: 4px;
+}
+.nav ul a {
+  padding: .5em;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+.nav ul a.activePage {
+  background-color: white;
+  color: blue;
+  font-weight: 600;
+}
+.nav ul > li {
+  display: inline-block;
+  flex-grow: 1;
+  padding: .2em;
+  margin-left: 0;
+  margin-right: 1em;
+}
+
+.pagelist {
+  flex-direction: row;
+}
+.pagelist > ul {
+  list-style-type: none;
+  padding: 0em;
+  margin: 0;
+  width: 100%;
+}
+.pagelist > ul > li {
+  padding: 0;
+  margin: 0;
+}
+
+.pageitem {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1em;
+  margin: .5em 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.pageitem > .elink {
+  width: 100%;
+  font-style: italic;
+  flex-grow: 2;
+  font-size: 120%;
+  margin-bottom: .5em;
+}
+.pageitem pre {
+  width: 100%;
+  font-style: italic;
+  flex-grow: 2;
+  font-size: 120%;
+  margin-bottom: .5em;
+}
+
+.pageview .elink {
+  padding: 0.5em;
+  margin: 0.5em 0px;
+  width: 100%;
+  display: inline-block;
+  font-style: italic;
+  background-color: lightcyan;
+  border-radius: 3px;
+}
+.pageview > div {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.pageview > div > * {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.newpage {
+  margin-top: 1em;
+}
+.newpage > form {
+  display: flex;
+  flex-flow: column wrap;
+}
+.newpage > form > * {
+  margin-top: .5em;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.newpage > form  > div >.errors {
+  margin-left: 8em;
+}
+.newpage > form .hasError {
+  color: red;
+}
+.newpage .errors {
+  color: red;
+}
+.newpage > form label {
+  text-align: right;
+  flex-grow: 1;
+  max-width: 7em;
+  margin-right: 1em;
+}
+.newpage > form *:last-child {
+  text-align: left;
+  flex-grow: 2;
+}
+.newpage > form > div:last-child {
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 8em;
+}
+
+.loading {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 100%;
+  padding: 1em;
+  margin: .5em 0;
+  display: block;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.errors {
+  width: 100%;
+  flex-grow: 2;
+  list-style-type: none;
+  padding: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.paginator {
+  margin-top: .5em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-between;
 }

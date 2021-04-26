@@ -11,8 +11,8 @@
 	<groupId>com.cesararana.exe.urldbapp</groupId>
 	<artifactId>urldbapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>urldbapp</name>
-	<description>Url DB App</description>
+	<name>pageapp</name>
+	<description>Page DB App</description>
 	<properties>
 		<java.version>11</java.version>
 

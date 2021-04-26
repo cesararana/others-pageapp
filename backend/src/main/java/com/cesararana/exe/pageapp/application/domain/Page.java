@@ -1,18 +1,26 @@
 package com.cesararana.exe.pageapp.application.domain;
 
+import com.cesararana.exe.pageapp.application.validators.URLValidator;
+import com.cesararana.exe.pageapp.common.SelfValidator;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Value;
 
-import java.net.URL;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-@Getter
+@Value
 @Builder(toBuilder = true)
-public class Page {
+public class Page extends SelfValidator<Page> {
 
-    private final Long id;
+    Long id;
 
-    private final URL url;
-    private final String description;
-    private final String notes;
-    private final String slug;
+    @NotBlank
+    @URLValidator
+    String url;
+    @NotBlank
+    String description;
+    @NotNull
+    String notes;
+
+    String slug;
 }

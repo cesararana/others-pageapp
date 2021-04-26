@@ -1,36 +1,35 @@
 package com.cesararana.exe.pageapp.adapters.entities;
 
 import com.cesararana.exe.pageapp.application.domain.Page;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.net.URL;
 
 @Entity
-@Table(name = "url", indexes = @Index(columnList = "slug", unique = true))
+@Table(name = "page", indexes = @Index(columnList = "slug", unique = true))
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class UrlEntity {
+public class PageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
-    private URL url;
+    private String url;
 
-    @NotBlank
     @Column(name = "slug")
     private String slug;
-    @NotBlank
     private String description;
-    @NotBlank
     private String notes;
 
-    public static UrlEntity from(Page page) {
-        return UrlEntity.builder()
+    public static PageEntity from(Page page) {
+        return PageEntity.builder()
                 .id(page.getId())
                 .url(page.getUrl())
                 .slug(page.getSlug())
@@ -39,13 +38,13 @@ public class UrlEntity {
                 .build();
     }
 
-    public static Page to(UrlEntity urlEntity) {
+    public Page toPage() {
         return Page.builder()
-                .id(urlEntity.getId())
-                .url(urlEntity.getUrl())
-                .slug(urlEntity.getSlug())
-                .description(urlEntity.getDescription())
-                .notes(urlEntity.getNotes())
+                .id(getId())
+                .url(getUrl())
+                .slug(getSlug())
+                .description(getDescription())
+                .notes(getNotes())
                 .build();
     }
 }

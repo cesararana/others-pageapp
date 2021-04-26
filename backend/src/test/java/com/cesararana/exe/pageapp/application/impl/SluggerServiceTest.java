@@ -1,6 +1,5 @@
-package com.cesararana.exe.pageapp.application;
+package com.cesararana.exe.pageapp.application.impl;
 
-import com.cesararana.exe.pageapp.application.impl.SluggerService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,7 +16,9 @@ public class SluggerServiceTest {
             td("Aunt Millie's & Co., Inc.", "aunt-millies-and-co-inc"),
             td("Trusted By 99% of Skydivers!", "trusted-by-99-percent-of-skydivers"),
             td("Your local hitch-hiking experts", "your-local-hitch-hiking-experts"),
-            td("  Your local hitch-hiking experts  ", "your-local-hitch-hiking-experts")
+            td("  Your local hitch-hiking experts  ", "your-local-hitch-hiking-experts"),
+            td("-  Your local hitch-hiking experts  -", "your-local-hitch-hiking-experts"),
+            td("-  test@example.com  -", "test-at-examplecom")
     );
 
     private static TestData<String, String> td(String value, String expected) {
