@@ -5,7 +5,6 @@ import com.cesararana.exe.pageapp.application.domain.Page;
 import com.cesararana.exe.pageapp.application.domain.Query;
 import com.cesararana.exe.pageapp.application.exceptions.PageAppException;
 import com.cesararana.exe.pageapp.application.impl.PageAppService;
-import com.fasterxml.jackson.databind.exc.ValueInstantiationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +56,7 @@ public class PageController {
     public Map<String, Object> handleValidationExceptions(
             ConstraintViolationException ex) {
         Map<String, String> errors = new HashMap<>();
-        ex.getConstraintViolations().stream().forEach( cv -> {
+        ex.getConstraintViolations().forEach(cv -> {
             errors.put(cv.getPropertyPath().toString(), cv.getMessage());
         });
         return Map.of("errors", errors);
@@ -71,13 +70,4 @@ public class PageController {
         errors.put("error", ex.getMessage());
         return Map.of("errors", errors);
     }
-
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    @ExceptionHandler({ValueInstantiationException.class})
-//    public Map<String, String> handleValidationExceptions2(
-//            ValueInstantiationException ex) {
-//        Map<String, String> errors = new HashMap<>();
-//        errors.put("error", ex.getCause().getMessage());
-//        return errors;
-//    }
 }

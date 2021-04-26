@@ -6,7 +6,7 @@ import javax.validation.Validator;
 
 public class SelfValidator<T extends  Object> {
 
-    private Validator validator;
+    private final Validator validator;
 
     public SelfValidator() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
